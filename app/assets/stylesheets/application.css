@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ 
+ body {
+   margin: 0;
+ }
+ 
+ .app-header {
+   width: 100%;
+   height: 100px;
+   padding: 10px;
+   background-color: DarkSeaGreen;
+   text-align: center;
+ }
