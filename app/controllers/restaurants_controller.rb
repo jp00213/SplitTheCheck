@@ -56,6 +56,16 @@ class RestaurantsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def increaseUpvote
+    Restaurant.increment_counter(:upvote, params[:id])
+    redirect_to action: "index" 
+  end
+
+  def increaseDownvote
+    Restaurant.increment_counter(:downvote, params[:id])
+    redirect_to action: "index" 
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

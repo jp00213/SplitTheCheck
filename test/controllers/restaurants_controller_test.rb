@@ -45,4 +45,18 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to restaurants_url
   end
+
+  test "should increase upvote" do
+    assert_difference('@restaurant.upvote') do
+      put '/increaseUpvote', params: { id: @restaurant.id }
+      @restaurant.reload
+    end
+  end
+
+  test "should increase downvote" do
+    assert_difference('@restaurant.downvote') do
+      put '/increaseDownvote', params: { id: @restaurant.id }
+      @restaurant.reload
+    end
+  end
 end
