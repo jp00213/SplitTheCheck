@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.restaurant-form {
+  width: 70%;
+  margin: auto;
+}
 
 table {
   margin: auto;
-  width: 75%;
+  width: 60%;
 }
 
 td {
@@ -19,4 +23,33 @@ td {
   width: 100%;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  width: 60%;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 40px;
+  gap: 50px 0px;
+  text-align: center;
+}
+
+.show-info {
+  font-size: 1.2em;
+  padding: 10px;
+  border-bottom: 2px dashed black;
+}
+
+.votes {
+  background-color: #cfe2cf;
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.show-footer {
+  margin: auto;
+  width: 60%;
+  font-size: 1.2em;
+}
 

@@ -1,24 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
-</p>
+<div class="wrapper">
+  <div class="show-info"><%= @restaurant.name %></div>
+  <div class="show-info"><%= @restaurant.location %></div>
+  <div>Upvotes</div>
+  <div>Downvotes</div>
+  <div class="votes"><%= @restaurant.upvote %></div>
+  <div class="votes"><%= @restaurant.downvote %></div>
+</div>
 
-<p>
-  <strong>Upvote:</strong>
-  <%= @restaurant.upvote %>
-</p>
+<div class="show-footer">
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+</div>
 
-<p>
-  <strong>Downvote:</strong>
-  <%= @restaurant.downvote %>
-</p>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
