@@ -7,17 +7,15 @@ class RestaurantsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit restaurants_url
-    assert_selector "h1", text: "Restaurants"
+    assert_selector "h1", text: "WILL THEY SPLIT?"
   end
 
   test "creating a Restaurant" do
     visit restaurants_url
     click_on "New Restaurant"
 
-    fill_in "Downvote", with: @restaurant.downvote
     fill_in "Location", with: @restaurant.location
     fill_in "Name", with: @restaurant.name
-    fill_in "Upvote", with: @restaurant.upvote
     click_on "Create Restaurant"
 
     assert_text "Restaurant was successfully created"
@@ -28,10 +26,8 @@ class RestaurantsTest < ApplicationSystemTestCase
     visit restaurants_url
     click_on "Edit", match: :first
 
-    fill_in "Downvote", with: @restaurant.downvote
     fill_in "Location", with: @restaurant.location
     fill_in "Name", with: @restaurant.name
-    fill_in "Upvote", with: @restaurant.upvote
     click_on "Update Restaurant"
 
     assert_text "Restaurant was successfully updated"
@@ -46,4 +42,5 @@ class RestaurantsTest < ApplicationSystemTestCase
 
     assert_text "Restaurant was successfully destroyed"
   end
+  
 end
