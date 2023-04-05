@@ -17,8 +17,10 @@ td {
 }
 
 .navigation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   background-color: #cfe2cf;
-  padding: 15px 50px;
+  padding: 15px 70px;
   margin: auto;
   width: 100%;
 }

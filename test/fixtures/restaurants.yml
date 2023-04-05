@@ -11,3 +11,16 @@ two:
   location: MyString
   upvote: 
   downvote: 
+  
+three:
+  name: My Diner
+  location: Atlanta, GA
+  upvote: 0
+  downvote: 0
+
+four:
+  name: Your Diner
+  location: Rome, GA
+  upvote: 
+  downvote: 
+  

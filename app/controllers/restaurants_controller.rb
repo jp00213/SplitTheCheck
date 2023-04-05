@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants or /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.search(params[:query])
   end
 
   # GET /restaurants/1 or /restaurants/1.json
@@ -66,7 +66,7 @@ class RestaurantsController < ApplicationController
     Restaurant.increment_counter(:downvote, params[:id])
     redirect_to action: "index" 
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
@@ -75,6 +75,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :location, :upvote, :downvote)
+      params.require(:restaurant).permit(:name, :location, :upvote, :downvote, :query)
     end
 end

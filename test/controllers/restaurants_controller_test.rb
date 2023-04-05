@@ -59,4 +59,5 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
       @restaurant.reload
     end
   end
+
 end
