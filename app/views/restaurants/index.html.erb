@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<div class="navigation">
-  <div><%= link_to 'New Restaurant', new_restaurant_path %></div>
-  <div>
+<div class="navigation-wrapper">
+  <div class="test"><%= link_to 'New Restaurant', new_restaurant_path %></div>
+  <div class="test">
   <%= form_with url: restaurants_path, method: :get do |form| %>
     <%= form.text_field :query %>
     <%= form.submit "Search" %>
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<table>
+<table class="index-table">
   <thead>
     <tr>
       <th>Restaurant Name</th>
