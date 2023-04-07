@@ -17,13 +17,13 @@
       <th>Location</th>
       <th colspan="2">Vote Results</th>
       <th colspan="2">Vote!</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
     <tr>
       <th colspan="2"></th>
       <th>Up</th>
       <th>Down</th>
-      <th colspan="5"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -38,7 +38,6 @@
         <td><%= button_to 'Won\'t Split', increaseDownvote_path, method: :put, params: { id: restaurant.id } %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
