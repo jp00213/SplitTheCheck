@@ -1,14 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <div class="navigation-wrapper">
-  <div class="test"><%= link_to 'New Restaurant', new_restaurant_path %></div>
-  <div class="test">
+<% if user_signed_in? %>
+
+  <div><%= link_to 'New Restaurant', new_restaurant_path %></div>
+  <div>
   <%= form_with url: restaurants_path, method: :get do |form| %>
     <%= form.text_field :query %>
     <%= form.submit "Search" %>
   <% end %>
   </div>
+  <div>
+    Welcome <%= current_user.email %> || 
+    <%= link_to :logout, destroy_user_session_path, :method => :delete  %>
+  </div>
+
+<% else %>
+
+  <div></div>
+  <div>
+  <%= form_with url: restaurants_path, method: :get do |form| %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+  </div>
+  <div>
+    <%= link_to 'Sign In', new_user_session_path %> || 
+    <%= link_to 'New User', new_user_registration_path %>
+  </div>
+
+<% end %>
 </div>
+
+<% if user_signed_in? %>
 
 <table class="index-table">
   <thead>
@@ -42,6 +66,33 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Restaurant Name</th>
+      <th>Location</th>
+      <th colspan="2">Vote Results</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.location %></td>
+        <td><%= restaurant.upvote %></td>
+        <td><%= restaurant.downvote %></td>
+        <td><%= link_to 'Show', restaurant %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
 
 <br>
 
