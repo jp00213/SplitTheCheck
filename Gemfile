@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sassc', '~> 2.1.0'
 
 gem "net-http"
+gem 'devise'

@@ -1,6 +1,8 @@
 require "test_helper"
 
 class RestaurantsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @restaurant = restaurants(:one)
   end
