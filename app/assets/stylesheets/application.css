@@ -28,3 +28,8 @@
 h1 {
   padding: 20px;
 }
+
+.devise-content {
+  width: 60%;
+  margin: auto;
+}

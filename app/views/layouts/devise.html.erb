@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SplitTheCheck</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="alert"><%= alert %></p>
+    <div class="app-header">
+      <h1>WILL THEY SPLIT?</h1>
+      <h2>A Restaurant Voting Guide</h2>
+    </div>
+    <div class="devise-content">
+    <%= yield %>
+    </div>
+  </body>
+</html>
