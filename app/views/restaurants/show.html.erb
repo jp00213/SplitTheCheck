@@ -6,9 +6,10 @@
   <div class="show-info"><%= @restaurant.location %></div>
   <div>Upvotes</div>
   <div>Downvotes</div>
-  <div class="votes"><%= @restaurant.upvote %></div>
-  <div class="votes"><%= @restaurant.downvote %></div>
+  <div class="votes"><%= controller.showUpvote(@restaurant.id) %></div>
+  <div class="votes"><%= controller.showDownvote(@restaurant.id) %></div>
 </div>
+
 
 <div class="show-footer">
   <%= link_to 'Back', restaurants_path %>

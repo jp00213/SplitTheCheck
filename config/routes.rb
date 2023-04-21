@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   
   put "/increaseUpvote", :to=>"restaurants#increaseUpvote"
   put "/increaseDownvote", :to=>"restaurants#increaseDownvote"
-
 end
