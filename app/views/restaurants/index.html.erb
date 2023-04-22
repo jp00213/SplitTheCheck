@@ -56,8 +56,8 @@
       <tr>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.location %></td>
-        <td><%= controller.showUpvote(restaurant.id) %></td>
-        <td><%= controller.showDownvote(restaurant.id) %></td>
+        <td class="upvote"><%= controller.showUpvote(restaurant.id) %></td>
+        <td class="downvote"><%= controller.showDownvote(restaurant.id) %></td>
         <td><%= button_to 'Will Split', increaseUpvote_path, method: :put, params: { id: restaurant.id } %></td>
         <td><%= button_to 'Won\'t Split', increaseDownvote_path, method: :put, params: { id: restaurant.id } %></td>
         <td><%= link_to 'Show', restaurant %></td>
@@ -84,8 +84,8 @@
       <tr>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.location %></td>
-        <td><%= controller.showUpvote(restaurant.id) %></td>
-        <td><%= controller.showDownvote(restaurant.id) %></td>
+        <td class="upvote"><%= controller.showUpvote(restaurant.id) %></td>
+        <td class="downvote"><%= controller.showDownvote(restaurant.id) %></td>
         <td><%= link_to 'Show', restaurant %></td>
       </tr>
     <% end %>
