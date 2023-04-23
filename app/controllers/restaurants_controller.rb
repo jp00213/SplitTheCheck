@@ -62,7 +62,6 @@ class RestaurantsController < ApplicationController
     @thisRestaurant = Restaurant.find(params[:id])
     @thisUser = current_user
     Review.create(restaurant: @thisRestaurant, user: @thisUser, upvote: 1, downvote: 0)
-#    Restaurant.increment_counter(:upvote, params[:id])
     redirect_to action: "index" 
   end
 
@@ -70,26 +69,7 @@ class RestaurantsController < ApplicationController
     @thisRestaurant = Restaurant.find(params[:id])
     @thisUser = current_user
     Review.create(restaurant: @thisRestaurant, user: @thisUser, upvote: 0, downvote: 1)
-#    Restaurant.increment_counter(:downvote, params[:id])
     redirect_to action: "index" 
-  end
-  
-  def showUpvote(id)
-    @restaurantVotes = Review.where("restaurant_id == ?", id)
-    tally = 0
-    @restaurantVotes.each do |vote|
-      tally = vote.upvote + tally
-    end
-    tally
-  end
-  
-  def showDownvote(id)
-    @restaurantVotes = Review.where("restaurant_id == ?", id)
-    tally = 0
-    @restaurantVotes.each do |vote|
-      tally = vote.downvote + tally
-    end
-    tally
   end
   
   private

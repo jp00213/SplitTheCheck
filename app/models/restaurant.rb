@@ -13,4 +13,23 @@ class Restaurant < ApplicationRecord
     end
   end
   
+  def self.showUpvote(id)
+    @restaurantVotes = Review.where("restaurant_id == ?", id)
+    tally = 0
+    @restaurantVotes.each do |vote|
+      tally = vote.upvote + tally
+    end
+    tally
+  end
+
+  def self.showDownvote(id)
+    @restaurantVotes = Review.where("restaurant_id == ?", id)
+    tally = 0
+    @restaurantVotes.each do |vote|
+      tally = vote.downvote + tally
+    end
+    tally
+  end
+
+  
 end

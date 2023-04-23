@@ -6,8 +6,8 @@
   <div class="show-info"><%= @restaurant.location %></div>
   <div>Upvotes</div>
   <div>Downvotes</div>
-  <div class="votes"><%= controller.showUpvote(@restaurant.id) %></div>
-  <div class="votes"><%= controller.showDownvote(@restaurant.id) %></div>
+  <div class="votes"><%= Restaurant.showUpvote(@restaurant.id) %></div>
+  <div class="votes"><%= Restaurant.showDownvote(@restaurant.id) %></div>
 </div>
 
 
