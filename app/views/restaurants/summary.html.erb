@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Restaurant Name</th>
+      <th>Will Votes</th>
+      <th>Won't Votes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.restaurant_id %></td>
+        <td><%= vote.upvote %></td>
+        <td><%= vote.downvote %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

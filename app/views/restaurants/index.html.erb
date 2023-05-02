@@ -12,6 +12,7 @@
   </div>
   <div>
     Welcome <%= current_user.email %> || 
+    <%= link_to 'Your Summary', summary_path, :method => :put  %> || 
     <%= link_to :logout, destroy_user_session_path, :method => :delete  %>
   </div>
 
