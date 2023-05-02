@@ -74,6 +74,8 @@ class RestaurantsController < ApplicationController
   
   def summary
       @votes = Review.where("user_id == ?", current_user)
+      @favorites = Review.where("user_id == ?", current_user)
+      @comments = Review.where("user_id == ?", current_user)
 
   end
   

@@ -1,6 +1,42 @@
 <p id="notice"><%= notice %></p>
 
+<h1 class="summary">Your Comments</h1>
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Restaurant Name</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.restaurant.name %></td>
+        <td><%= comment.restaurant.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1 class="summary">Your Favorites</h1>
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Restaurant Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.restaurant.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1 class="summary">Your Votes</h1>
 <table class="index-table">
   <thead>
     <tr>
@@ -13,7 +49,7 @@
   <tbody>
     <% @votes.each do |vote| %>
       <tr>
-        <td><%= vote.restaurant_id %></td>
+        <td><%= vote.restaurant.name %></td>
         <td><%= vote.upvote %></td>
         <td><%= vote.downvote %></td>
       </tr>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "restaurants#index"
   
   put "/summary", :to=>"restaurants#summary"
+  get "/summary", :to=>"restaurants#summary"
   put "/increaseUpvote", :to=>"restaurants#increaseUpvote"
   put "/increaseDownvote", :to=>"restaurants#increaseDownvote"
 end
