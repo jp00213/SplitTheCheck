@@ -10,6 +10,7 @@
     <tr>
       <th>Restaurant Name</th>
       <th>Comment</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -18,6 +19,7 @@
       <tr>
         <td><%= comment.restaurant.name %></td>
         <td><%= comment.fullComment %></td>
+        <td><%= link_to 'Show', comment.restaurant %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,6 +30,7 @@
   <thead>
     <tr>
       <th>Restaurant Name</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -35,6 +38,7 @@
     <% @favorites.each do |favorite| %>
       <tr>
         <td><%= favorite.restaurant.name %></td>
+        <td><%= link_to 'Show', favorite.restaurant %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,6 +51,7 @@
       <th>Restaurant Name</th>
       <th>Will Votes</th>
       <th>Won't Votes</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -56,6 +61,7 @@
         <td><%= vote.restaurant.name %></td>
         <td><%= vote.upvote %></td>
         <td><%= vote.downvote %></td>
+        <td><%= link_to 'Show', vote.restaurant %></td>
       </tr>
     <% end %>
   </tbody>
