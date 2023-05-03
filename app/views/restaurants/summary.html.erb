@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div class="navigation-wrapper">
+  <%= link_to 'Back', restaurants_path %>
+</div>
+
 <h1 class="summary">Your Comments</h1>
 <table class="index-table">
   <thead>
@@ -13,7 +17,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.restaurant.name %></td>
-        <td><%= comment.restaurant.name %></td>
+        <td><%= comment.fullComment %></td>
       </tr>
     <% end %>
   </tbody>

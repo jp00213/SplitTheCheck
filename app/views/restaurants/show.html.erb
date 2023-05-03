@@ -10,6 +10,30 @@
   <div class="votes"><%= Restaurant.showDownvote(@restaurant.id) %></div>
 </div>
 
+<div>
+  <% if user_signed_in? %>
+    <h2 class="link"><%= link_to 'Add Comment', newComment_path(:restaurant => @restaurant) %></h2>
+  <% end %>
+</div>
+
+<table class="index-table">
+  <thead>
+    <tr>
+      <th>Comments</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.fullComment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 
 <div class="show-footer">
   <%= link_to 'Back', restaurants_path %>

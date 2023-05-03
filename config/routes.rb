@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   get "/summary", :to=>"restaurants#summary"
   put "/increaseUpvote", :to=>"restaurants#increaseUpvote"
   put "/increaseDownvote", :to=>"restaurants#increaseDownvote"
+  
+  get "/newComment", :to=>"restaurants#newComment"
+  post "/newComment", :to=>"restaurants#addComment"
 end

@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1 or /restaurants/1.json
   def show
+    @comments = Comment.where("restaurant_id == ?", @restaurant)
   end
 
   # GET /restaurants/new
@@ -73,10 +74,23 @@ class RestaurantsController < ApplicationController
   end
   
   def summary
-      @votes = Review.where("user_id == ?", current_user)
-      @favorites = Review.where("user_id == ?", current_user)
-      @comments = Review.where("user_id == ?", current_user)
-
+    @comments = Comment.where("user_id == ?", current_user)
+    @votes = Review.where("user_id == ?", current_user)
+    @favorites = Review.where("user_id == ?", current_user)
+  end
+  
+  def newComment
+    @restaurant = Restaurant.find(params[:restaurant])
+  end
+  
+  def addComment
+    @thisRestaurant = Restaurant.find(params[:restaurant])
+    @thisUser = current_user
+    Comment.create(restaurant: @thisRestaurant, user: @thisUser, fullComment: params[:fullComment])
+    respond_to do |format|
+      format.html { redirect_to restaurant_url(@thisRestaurant), notice: "Comment successfully added." }
+      format.json { head :no_content }
+    end
   end
   
   private
