@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   
   get "/newComment", :to=>"restaurants#newComment"
   post "/newComment", :to=>"restaurants#addComment"
+  post "/toggleFavorite", :to=>"restaurants#toggleFavorite"
+
 end

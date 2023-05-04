@@ -1,9 +1,13 @@
 <div class="restaurant-form">
-<%= @restaurant.name %>
+<h1>Comment on <%= @restaurant.name %></h1>
 <%= form_with model: @comment do |form| %>
+  <div class="field">
   <%= form.text_area :fullComment, size: "60x10" %>
+  </div>
   <%= form.hidden_field :restaurant, :value => @restaurant.id %>
+  <div class="actions">
   <%= form.submit %>
+  </div>
 <% end %>
 
   <%= link_to 'Back', restaurants_path %>

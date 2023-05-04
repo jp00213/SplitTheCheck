@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1 or /restaurants/1.json
   def show
     @comments = Comment.where("restaurant_id == ?", @restaurant)
+    @fave = Favorite.where("user_id == ? AND restaurant_id == ?", current_user, @restaurant)
   end
 
   # GET /restaurants/new
@@ -89,6 +90,23 @@ class RestaurantsController < ApplicationController
     Comment.create(restaurant: @thisRestaurant, user: @thisUser, fullComment: params[:fullComment])
     respond_to do |format|
       format.html { redirect_to restaurant_url(@thisRestaurant), notice: "Comment successfully added." }
+      format.json { head :no_content }
+    end
+  end
+  
+  def toggleFavorite
+    @thisRestaurant = Restaurant.find(params[:restaurant])
+    @thisUser = current_user
+    begin
+      Favorite.create(restaurant: @thisRestaurant, user: @thisUser, isFavorite: true)
+    rescue ActiveRecord::RecordNotUnique => e
+      @oldFavorite = Favorite.where("user_id == ? AND restaurant_id == ?", @thisUser, @thisRestaurant)
+      @oldFavorite.each do |favorite|
+        favorite.toggle!(:isFavorite)
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to restaurant_url(@thisRestaurant), notice: "Favorite changed." }
       format.json { head :no_content }
     end
   end

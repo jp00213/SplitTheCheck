@@ -36,10 +36,12 @@
 
   <tbody>
     <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= favorite.restaurant.name %></td>
-        <td><%= link_to 'Show', favorite.restaurant %></td>
-      </tr>
+      <% if favorite.isFavorite %>
+        <tr>
+          <td><%= favorite.restaurant.name %></td>
+          <td><%= link_to 'Show', favorite.restaurant %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

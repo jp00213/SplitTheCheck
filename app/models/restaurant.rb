@@ -34,6 +34,17 @@ class Restaurant < ApplicationRecord
     end
     tally
   end
-
+  
+  def self.isFavorite(current_user, id)
+    @fave = Favorite.where("user_id == ? AND restaurant_id == ?", current_user, id)
+    status = false
+    @fave.each do |favorite|
+      if favorite.isFavorite
+        puts favorite
+        status = true
+      end
+    end
+    status
+  end
   
 end

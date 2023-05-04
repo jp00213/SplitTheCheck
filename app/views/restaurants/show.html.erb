@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <% if user_signed_in? %>
+    <% if Restaurant.isFavorite(current_user, @restaurant) %>
+      <h2 class="link"><%= button_to 'Remove Favorite', toggleFavorite_path(:restaurant => @restaurant) %></h2>
+    <% else %>
+      <h2 class="link"><%= button_to 'Add Favorite', toggleFavorite_path(:restaurant => @restaurant) %></h2>
+    <% end %>
+  <% end %>
+</div>
 
 <div class="show-wrapper">
   <div class="show-info"><%= @restaurant.name %></div>
