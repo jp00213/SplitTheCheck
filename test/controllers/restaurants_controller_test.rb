@@ -92,4 +92,38 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_equal(1, result)
   end
   
+  test "should display summary page" do
+    sign_in users(:one)
+    put summary_path
+    assert_response :success
+  end
+
+  test "should add a new comment on a restaurant" do
+    sign_in users(:one)
+    get restaurant_url(@restaurant)
+    get newComment_path(:restaurant => @restaurant)
+    assert_response :success
+    @comment = Comment.where("restaurant_id == ?", @restaurant)
+    assert_equal(1, @comment.size)
+
+    post newComment_path(:restaurant => @restaurant, :fullComment => "testing")
+    @comment = Comment.where("restaurant_id == ?", @restaurant)
+    assert_equal(2, @comment.size)
+    assert_equal("testing", @comment[1].fullComment)
+  end
+
+  test "should set and unset a restaurant as favorite" do
+    sign_in users(:one)
+    get restaurant_url(@restaurant)
+
+    @favorites = Favorite.where("restaurant_id == ?", @restaurant)
+    assert(!@favorites[0].isFavorite)
+    post toggleFavorite_path(:restaurant => @restaurant)
+    @favorites = Favorite.where("restaurant_id == ?", @restaurant)
+    assert(@favorites[0].isFavorite)
+    post toggleFavorite_path(:restaurant => @restaurant)
+    @favorites = Favorite.where("restaurant_id == ?", @restaurant)
+    assert(!@favorites[0].isFavorite)
+  end
+
 end
