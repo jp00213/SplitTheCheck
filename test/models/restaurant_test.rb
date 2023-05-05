@@ -44,8 +44,19 @@ class RestaurantTest < ActiveSupport::TestCase
   
   test "should show if a restaurant is a favorite" do
     @user = users(:one)
+    @restaurant = restaurants(:one)
+    assert(!Restaurant.isFavorite(@user, @restaurant))
+    
+    @oldFavorite = Favorite.where("user_id == ? AND restaurant_id == ?", @user, @restaurant)
+    @oldFavorite.each do |favorite|
+      favorite.toggle!(:isFavorite)
+    end
     assert(Restaurant.isFavorite(@user, @restaurant))
-  
+    @oldFavorite = Favorite.where("user_id == ? AND restaurant_id == ?", @user, @restaurant)
+    @oldFavorite.each do |favorite|
+      favorite.toggle!(:isFavorite)
+    end
+    assert(!Restaurant.isFavorite(@user, @restaurant))
   end
 
 end

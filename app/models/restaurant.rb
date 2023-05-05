@@ -40,7 +40,6 @@ class Restaurant < ApplicationRecord
     status = false
     @fave.each do |favorite|
       if favorite.isFavorite
-        puts favorite
         status = true
       end
     end
