@@ -41,5 +41,11 @@ class RestaurantTest < ActiveSupport::TestCase
     Review.create(restaurant: @restaurant, user: @user, upvote: 1, downvote: 1)
     assert_equal(2, Restaurant.showDownvote(@restaurant))
   end
+  
+  test "should show if a restaurant is a favorite" do
+    @user = users(:one)
+    assert(Restaurant.isFavorite(@user, @restaurant))
+  
+  end
 
 end
