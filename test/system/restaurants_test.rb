@@ -71,5 +71,36 @@ class RestaurantsTest < ApplicationSystemTestCase
     assert_selector "td", :text => "2".to_s
     assert_selector "td", :text => "3".to_s
   end
+  
+  test "adding a comment" do
+    visit restaurants_url
+    click_on "Sign In"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
+    click_on "Log in"
+    
+    click_on "Show", match: :first
+    click_on "Add Comment"
+
+    fill_in "fullComment", with: "Test Comment"
+    click_on "Save"
+
+    assert_text "Comment successfully added"
+    click_on "Back"
+  end
+
+  test "viewing summary" do
+    visit restaurants_url
+    click_on "Sign In"
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
+    click_on "Log in"
+    
+    click_on "Your Summary"
+
+    assert_text "Your Comments"
+    click_on "Back"
+  end
+
 
 end
